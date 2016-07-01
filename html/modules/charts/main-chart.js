@@ -94,7 +94,7 @@ function MainChart_handleClickedChartValues(floatsArray) {
 
     // This is for the clicked coordinate from WCPS
     var xDist = 3.0 / floatsArray.length; // Value for setting the equidistance Band wavelength which should be between 1 and 4
-    var xPrev = 1.0; // Value used for storing the Band wavelength of the previous Band
+    var xPrev = 0.405; // Value used for storing the Band wavelength of the previous Band
     var Ymin = Infinity,
         Ymax = -Infinity; // Values for getting the minimum and maximum out of the array
 
@@ -328,7 +328,7 @@ function MainChart_implementChart(floatsArray, spectralFloatsArray) {
             // spectral + number of line charts
             lineChartsCount = dataProviderChartsArray.length + 1;
 
-            if(wavelength < 1) {
+            if(wavelength < 0.4) {
                 // Prepend values from spectral library
                 var obj = {};
                 obj["wavelength"] = wavelength;
@@ -338,7 +338,7 @@ function MainChart_implementChart(floatsArray, spectralFloatsArray) {
                     obj[reflectanceIndex] = null;
                 }
                 prependArray.push(obj);
-            } else if(wavelength > 4) {
+            } else if(wavelength > 3) {
                 // append values to array
                 var obj = {};
                 obj["wavelength"] = wavelength;

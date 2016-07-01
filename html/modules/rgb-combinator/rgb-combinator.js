@@ -2,7 +2,7 @@ var wcpsQueriesJSON = ""; // array to store wcpsQueries from server
 // Generate dropdown and subdropdown according to the dataset
 // Now, set to default 400 bands (TO-DO: store all of these things to dataset metdata in database and get this number from database)
 var DEFAULT_BANDS = 85;
-var SUBMENU_BANDS = 5;
+var SUBMENU_BANDS = 17;
 
 // when combine with WCPS custom queries will need to stretch it with Python web service
 var stretch = false;

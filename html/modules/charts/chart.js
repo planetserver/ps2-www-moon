@@ -16,9 +16,9 @@ function Chart_parseFloatsWithComma(input) {
     // convert string value to float
     for(var i = 0; i < floatsArray.length; i++) {
     	floatsArray[i] = parseFloat(floatsArray[i]);
-	if (floatsArray[i] === 65535 || floatsArray[i] < 0.00001) {
+	if (floatsArray[i] === -999 || floatsArray[i] < 0.00001) {
             floatsArray[i] = null;
-        }	
+        }
     }
 
     //console.log("after filter null values:");
@@ -35,7 +35,7 @@ function Chart_parseFloats(input) {
     // convert string value to float
     for(var i = 0; i < floatsArray.length; i++) {
 	floatsArray[i] = parseFloat(floatsArray[i]);
-        if (floatsArray[i] === 65535 || floatsArray[i] < 0.00001) {
+        if (floatsArray[i] === -999 || floatsArray[i] < 0.00001) {
             floatsArray[i] = null;
         }
     }

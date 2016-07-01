@@ -13,10 +13,10 @@ var availableWCPSQueries = []; // store all the WCPS queries from JSON
 var selectedFootPrintsArray = []; // store the selected footprints from dropDownSelectedFootPrints
 
 // RGB Bands default for all footprints from WCPS Query
-var redBandDefault = "(int)(255 / (max((data.band_233 != 65535) * data.band_233) - min(data.band_233))) * (data.band_233 - min(data.band_233))";
+var redBandDefault = "(int)(255 / (max((data.band_10 != 65535) * data.band_10) - min(data.band_10))) * (data.band_10 - min(data.band_10))";
 var blueBandDefault = "(int)(255 / (max((data.band_78 != 65535) * data.band_78) - min(data.band_78))) * (data.band_78 - min(data.band_78))";
 var greenBandDefault = "(int)(255 / (max((data.band_13 != 65535) * data.band_13) - min(data.band_13))) * (data.band_13 - min(data.band_13))";
-var alphaBandDefault = "(data.band_100 != 65535) * 255";
+var alphaBandDefault = "(data.band_85 != 65535) * 255";
 
 // return the value of Red/Green/Blue band on clicked coordinate
 var wcpsQueryRGBValueTemplate = 'for data in ($COVERAGE_ID) return encode({ $QUERY }, "csv")';

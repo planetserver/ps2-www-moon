@@ -405,7 +405,7 @@ requirejs(['../../config/config',
 
             for (var i = 0; i < checkedFootPrintsArray.length; i++) {
                 // check if coverageID is new checked then load default image on this
-                var coverageID = checkedFootPrintsArray[i].coverageID.toLowerCase();
+                var coverageID = checkedFootPrintsArray[i].coverageID;
 
                 // only load default image on the new checked footprints in newClickedFootPrintsArray
                 if(checkedFootPrintsArray.length > 1 && newClickedFootPrintsArray.indexOf(coverageID) === -1) {
@@ -467,7 +467,7 @@ requirejs(['../../config/config',
                 var maxlong;
                 var minlong;
                 // only load RGB Combinations to the selected footprint from selected comboBox
-                if (checkedFootPrintsArray[i].coverageID.toLowerCase() === coverageID) {
+                if (checkedFootPrintsArray[i].coverageID === coverageID) {
                     maxlong = checkedFootPrintsArray[i].Easternmost_longitude; //assign maxlong from the checked footprint
                     minlong = checkedFootPrintsArray[i].Westernmost_longitude; //assign minlong from the checked footprint
                     if (checkedFootPrintsArray[i].Easternmost_longitude > 180) { //long in www spans from -180 to 180, if its bigger than 180 = -360
@@ -506,7 +506,7 @@ requirejs(['../../config/config',
             drawLat = latitude;
             drawLon = longitude;
 
-            var r = 3396190;
+            var r = 1737400;
             var cosOf0 = 1;
             var rho = (Math.PI / 180);
             var N = latitude * r * rho;
@@ -616,7 +616,7 @@ requirejs(['../../config/config',
             }
 
 
-            var query = "http://access.planetserver.eu:8080/rasdaman/ows?query=for%20c%20in%20(" + covID.toLowerCase() + ")%20return%20encode(c[%20N(" +
+            var query = "http://access.planetserver.eu:8080/rasdaman/ows?query=for%20c%20in%20(" + covID + ")%20return%20encode(c[%20N(" +
                 N + ":" + N + "),%20E(" + E + ":" + E + ")%20],%20%22csv%22)";
 
             console.log("WCPS get bands value at clicked coordinate: " + query);
@@ -711,7 +711,7 @@ requirejs(['../../config/config',
         // Move to coverageID on globe
         function moveToCoverageID(coverageID) {
             for (var i = 0; i < allFootPrintsArray.length; i++) {
-                if (qsParam.covID.toLowerCase() === allFootPrintsArray[i].coverageID.toLowerCase()) {
+                if (qsParam.covID === allFootPrintsArray[i].coverageID) {
                     var centerLatitude = (allFootPrintsArray[i].Maximum_latitude + allFootPrintsArray[i].Minimum_latitude) / 2;
                     var centerLongitude = (allFootPrintsArray[i].Easternmost_longitude + allFootPrintsArray[i].Westernmost_longitude) / 2;
                     moveToLocation(centerLatitude, centerLongitude, qsParam.range);

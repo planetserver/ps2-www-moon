@@ -24,8 +24,8 @@ function RatioChart_getQueryResponseAndSetChart(query) {
                         parsedFloats[i] = bandRatioNumeratorValues[i] / bandRatioDenominatorValues[i];
 
                     } else {
-                        // cannot divide for 0 then set it to 65535
-                        parsedFloats[i] = 65535;
+                        // cannot divide for 0 then set it to -999
+                        parsedFloats[i] = -999;
                     }
                 }
                 RatioChart_implementChart("mCSB_4_container", "bandRatioChartDiv", parsedFloats);
@@ -55,7 +55,7 @@ function RatioChart_implementChart(containerID, chartDivID, floatsArray) {
         // Only get points with valid value
         var relectance = 0;
 
-        if (floatsArray[i] != 65535 && floatsArray[i] != 0 && floatsArray[i] < 20 && floatsArray[i] > 0.0001) {
+        if (floatsArray[i] != -999 && floatsArray[i] != 0 && floatsArray[i] < 20 && floatsArray[i] > 0.0001) {
             relectance = floatsArray[i];
         } else {
             relectance = null;

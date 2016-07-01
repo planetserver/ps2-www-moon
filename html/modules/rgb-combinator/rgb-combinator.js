@@ -1,8 +1,8 @@
 var wcpsQueriesJSON = ""; // array to store wcpsQueries from server
 // Generate dropdown and subdropdown according to the dataset
 // Now, set to default 400 bands (TO-DO: store all of these things to dataset metdata in database and get this number from database)
-var DEFAULT_BANDS = 438;
-var SUBMENU_BANDS = 73;
+var DEFAULT_BANDS = 85;
+var SUBMENU_BANDS = 5;
 
 // when combine with WCPS custom queries will need to stretch it with Python web service
 var stretch = false;
@@ -99,7 +99,7 @@ window.queryRGBValue = function(coverageID, longitude, latitude, rgbQueryArray) 
     }
 
     // Get value of band combinations
-    var wcpsQuery = wcpsQueryRGBValueTemplate.replace("$COVERAGE_ID", coverageID.toLowerCase()).replace("$QUERY", tmp);
+    var wcpsQuery = wcpsQueryRGBValueTemplate.replace("$COVERAGE_ID", coverageID).replace("$QUERY", tmp);
 
     console.log(ps2WCPSEndPoint + wcpsQuery);
 
@@ -677,7 +677,7 @@ function getBandWCPSQuery(simpleBandTemplate, targetName, bandName) {
 
     // Get the WCPS query of bandName (red: wcpsquery);
     var tmp = targetName.split("_")[0]; // $RED
-    tmp = tmp.substring(1, tmp.length).toLowerCase();
+    tmp = tmp.substring(1, tmp.length);
     tmp = tmp.charAt(0).toUpperCase() + tmp.slice(1);
 
     var targetNameSubString = tmp; //Red
@@ -703,7 +703,7 @@ function getBandWCPSQuery(simpleBandTemplate, targetName, bandName) {
             var subMenuItems = menuItems[i].array;
             for (j = 0; j < subMenuItems.length; j++) {
                 // not need to type upper case
-                if (bandName.toLowerCase() === subMenuItems[j].name.toLowerCase()) {
+                if (bandName === subMenuItems[j].name) {
 
                     isSuccessRGBCombination = true;
                     isAllBandsCustomWCPSQueries += 1;
@@ -742,7 +742,7 @@ $("#btnSubmitRGBCombination").click(function(e) {
             // insert bands here
             +
             "$RGB_BANDS" +
-            '  alpha: (data.band_100 != 65535) * 255 }, "png", "nodata=null")';
+            '  alpha: (data.band_85 != 65535) * 255 }, "png", "nodata=null")';
 
         var RED_BAND = 'Red:   (int)(255 / (max((data.band_$RED_BAND != 65535) * data.band_$RED_BAND) - min(data.band_$RED_BAND))) * (data.band_$RED_BAND - min(data.band_$RED_BAND));'
         var GREEN_BAND = 'Green: (int)(255 / (max((data.band_$GREEN_BAND != 65535) * data.band_$GREEN_BAND) - min(data.band_$GREEN_BAND))) * (data.band_$GREEN_BAND - min(data.band_$GREEN_BAND));'
@@ -848,7 +848,7 @@ $("#btnSubmitRGBCombination").click(function(e) {
                     console.log("Combine bands in WCPS queries: " + selectedFootPrintsArray[i].coverageID);
 
                     // replace $COVERAGE_ID with selected coverageID and load WCPS combination on checked footprint
-                    WCPS_TEMPLATE_QUERY = replaceAll(WCPS_TEMPLATE, "$COVERAGE_ID", selectedFootPrintsArray[i].coverageID.toLowerCase());
+                    WCPS_TEMPLATE_QUERY = replaceAll(WCPS_TEMPLATE, "$COVERAGE_ID", selectedFootPrintsArray[i].coverageID);
                     if(isAllBandsCustomWCPSQueries === 3) {
                         // current encode in PNG has problem when gdalinfo does not ignore NODATA ( = 0 ) then need to use tiff as it will
                         // calculate correctly
@@ -859,7 +859,7 @@ $("#btnSubmitRGBCombination").click(function(e) {
 
                     console.log("WCPS query: " + WCPS_TEMPLATE_QUERY);
 
-                    loadRGBCombinations(WCPS_TEMPLATE_QUERY, selectedFootPrintsArray[i].coverageID.toLowerCase(), stretch);
+                    loadRGBCombinations(WCPS_TEMPLATE_QUERY, selectedFootPrintsArray[i].coverageID, stretch);
                 }
             }
         }

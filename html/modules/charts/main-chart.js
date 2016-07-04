@@ -93,7 +93,7 @@ function MainChart_handleClickedChartValues(floatsArray) {
     var spectralDataProviderChart1 = [];
 
     // This is for the clicked coordinate from WCPS
-    var xDist = 3.0 / floatsArray.length; // Value for setting the equidistance Band wavelength which should be between 1 and 4
+    var xDist = 2.625529412 / floatsArray.length; // Value for setting the equidistance Band wavelength which should be between 1 and 4
     var xPrev = 0.405; // Value used for storing the Band wavelength of the previous Band
     var Ymin = Infinity,
         Ymax = -Infinity; // Values for getting the minimum and maximum out of the array
@@ -113,8 +113,9 @@ function MainChart_handleClickedChartValues(floatsArray) {
 
         // If point value is valid or not valid still need to calculate the X coordinate for it.
         xPrev = xPrev + xDist; // Setting the correct X-axis wavelength of the current Band/point
+        console.log(xPrev);
     }
-
+// console.log(spectralDataProviderChart1);
     return spectralDataProviderChart1;
 }
 
@@ -328,7 +329,7 @@ function MainChart_implementChart(floatsArray, spectralFloatsArray) {
             // spectral + number of line charts
             lineChartsCount = dataProviderChartsArray.length + 1;
 
-            if(wavelength < 0.4) {
+            if(wavelength < 0.405) {
                 // Prepend values from spectral library
                 var obj = {};
                 obj["wavelength"] = wavelength;

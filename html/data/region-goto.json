@@ -1,22 +1,38 @@
 [{
-  "name": "Olympus Mons",
-  "latitude": 18.65275,
-  "longitude": 226.1974
+  "name": "Cabeus crater",
+  "latitude": -84.9,
+  "longitude": 35.5
 }, {
-  "name": "Valles Marineris",
-  "latitude": -14.005868,
-  "longitude": 301.412325
+  "name": "Tycho crater",
+  "latitude": -43.31,
+  "longitude": 11.36
 }, {
-  "name": "Gale Crater",
-  "latitude": -5.3672,
-  "longitude": 137
+  "name": "Shackleton crater",
+  "latitude": -89.9,
+  "longitude": 0
 }, {
-  "name": "Meridiani Planum",
-  "latitude": -0.0408,
-  "longitude": 356.86
+  "name": "Apollo 11 landing site",
+  "latitude": 0.67408,
+  "longitude": 23.47297
 }, {
-  "name": "Gusev Crater",
-  "latitude": -14.530808,
-  "longitude": 175.524372
+  "name": "Apollo 12 landing site",
+  "latitude": -3.01239,
+  "longitude": -23.42157
+}, {
+  "name": "Apollo 14 landing site",
+  "latitude": -3.64530,
+  "longitude": -17.47136
+}, {
+  "name": "Apollo 15 landing site",
+  "latitude": 26.13222,
+  "longitude": 3.63386
+}, {
+  "name": "Apollo 16 landing site",
+  "latitude": -8.97537,
+  "longitude": 15.50019
+}, {
+  "name": "Apollo 17 landing site",
+  "latitude": 20.19080,
+  "longitude": 30.77168
 }
 ]

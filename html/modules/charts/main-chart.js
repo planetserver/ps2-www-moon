@@ -113,7 +113,7 @@ function MainChart_handleClickedChartValues(floatsArray) {
 
         // If point value is valid or not valid still need to calculate the X coordinate for it.
         xPrev = xPrev + xDist; // Setting the correct X-axis wavelength of the current Band/point
-        console.log(xPrev);
+        
     }
 // console.log(spectralDataProviderChart1);
     return spectralDataProviderChart1;
@@ -320,6 +320,7 @@ function MainChart_implementChart(floatsArray, spectralFloatsArray) {
         var prependArray = [];
         var appendArray = [];
 
+console.log(spectralFloatsArray);
         for(var i = 0; i < spectralFloatsArray.length; i++) {
             var wavelength =  selectedWaveLengthSpectralLibrary[i];
 
@@ -475,7 +476,7 @@ function drawChart(combinedArray) {
 
     }
 
-    console.log(chartsArray);
+    // console.log(chartsArray);
 
     var chartDivID = "mainChartDiv";
 

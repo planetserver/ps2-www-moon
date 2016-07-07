@@ -6,7 +6,7 @@ $( document ).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: ps2EndPoint + "html/data/region-goto.json",
+        url: ps2EndPoint + "moon/html/data/region-goto.json",
         data: "{dataset: 'CRISM'}", // it will query later on database with dataset
         cache: false,
         async: false,

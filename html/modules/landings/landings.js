@@ -142,7 +142,7 @@ requirejs(['../../config/config',
 
         var layers = [{
             // this is colorful base map
-            layer: new WorldWind.BMNGLayer("moon_wgs84"),
+            layer: new WorldWind.BMNGLayer("LOLA_color"),
             enabled: false
         }, {
             // this is dark base map
@@ -165,10 +165,10 @@ requirejs(['../../config/config',
             var isLoadedBaseMap = true;
 
             // colorful base map
-            if (selectedBaseMapName === "Moon") {
+            if (selectedBaseMapName === "LOLA color") {
                 if (baseMapName !== selectedBaseMapName) {
                     index = 0;
-                    baseMapName = "Moon";
+                    baseMapName = "LOLA color";
                     isLoadedBaseMap = false;
                 }
             } else if (selectedBaseMapName === "Moon") {

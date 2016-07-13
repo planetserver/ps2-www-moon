@@ -11,7 +11,8 @@ projectionNames = [
 ];
 
 baseMapNames = [
-   "Moon"
+   "Moon",
+   "LOLA color"
 ];
 
 customWCPSQueries = [

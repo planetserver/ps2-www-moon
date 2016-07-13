@@ -4,7 +4,7 @@
  */
 /**
  * @exports BMNGLayer
- * @version $Id: BMNGLayer.js 3123 2015-05-28 22:19:28Z tgaskins $
+ * @version $Id: BMNGLayer.js 3403 2015-08-15 02:00:01Z tgaskins $
  */
 define([
         '../geom/Location',
@@ -31,7 +31,7 @@ define([
         var BMNGLayer = function (layerName) {
           var wcpsImageLayer = new WorldWind.RenderableLayer();
             TiledImageLayer.call(this,
-                Sector.FULL_SPHERE, new Location(45, 45), 5, "image/jpeg", layerName, 128, 128);
+                Sector.FULL_SPHERE, new Location(45, 45), 5, "image/jpeg", layerName, 256, 256);
 
             this.displayName = "Moon WMS service";
             this.pickEnabled = false;

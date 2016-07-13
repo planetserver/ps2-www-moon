@@ -14,7 +14,7 @@ $(function () {
                             .append($("<img>", {class: "img-responsive", src: "html/images/logos/earthserver_logo.png", alt: "EarthServer Logo"}))
                         ).append($("<a>", {class: "navbar-brand link-to-moon", href: "#"})
                             .append($("<img>", {class: "img-responsive", alt: "Service Logo", src: "/html/images/moon_logo.png"}))
-                        ).append($("<a>", {class: "navbar-brand link-to-mars", href:"http://access.planetserver.eu/mars"})
+                        ).append($("<a>", {class: "navbar-brand link-to-mars", href:"http://access.planetserver.eu"})
                             .append($("<img>", {class: "img-responsive", alt: "Service Logo", src: "/html/images/mars_logo.png"}))
                         )
                     ).append($("<div>", {class: "navbar-header pull-right"})

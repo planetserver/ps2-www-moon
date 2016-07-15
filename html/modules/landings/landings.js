@@ -437,8 +437,32 @@ requirejs(['../../config/config',
                 checkedFootPrintsArray[i].isLoadedImage = true;
                 // If just use http://access.planetserver.eu:8080/rasdaman/ows?query it will have error NULL
                 // Load default bands for all footprintss
-                var WCPSLoadImage = ps2WCPSEndPoint + 'for data in (' + coverageID + ') return encode( { red: ' + redBandDefault + '; green: ' + greenBandDefault + '; blue: ' + blueBandDefault + ' ; alpha: ' + alphaBandDefault + '}, "png", "nodata=null")';
-                var surfaceImage = new WorldWind.SurfaceImage(new WorldWind.Sector(checkedFootPrintsArray[i].Minimum_latitude, checkedFootPrintsArray[i].Maximum_latitude, minlong, maxlong), WCPSLoadImage);
+                if (coverageID === 'M3G20081128T053620'){
+                  var minN = -30.145;
+                  var step = 3.1617;
+                  var newN = minN + step;
+                  for (var l = 0; l < 10; l++){
+
+                  var WCPSLoadImage = 'http://access.planetserver.eu:8080/rasdaman/ows?service=WCS&version=2.0.1&request=ProcessCoverages&query=for data in ( M3G20081128T053620 ) return encode( (data[N('+ minN +':'+ newN+')]).band_1, "png")'
+                  var surfaceImage = new WorldWind.SurfaceImage(new WorldWind.Sector(minN, newN, minlong, maxlong), WCPSLoadImage);
+                  console.log("minN: " + minN);
+                  console.log("newN: " + newN);
+
+
+                  console.log("Load default image on footprint: " + coverageID);
+
+                  renderLayer[l] = new WorldWind.RenderableLayer("");
+                  renderLayer[l].addRenderable(surfaceImage);
+
+                  // Add the loaded image in images layer
+                  imagesLayer.addRenderable(renderLayer[l]);
+                  minN = newN;
+                  newN = minN + step;
+
+                }
+              }
+                // var WCPSLoadImage = ps2WCPSEndPoint + 'for data in (' + coverageID + ') return encode( { red: ' + redBandDefault + '; green: ' + greenBandDefault + '; blue: ' + blueBandDefault + ' ; alpha: ' + alphaBandDefault + '}, "png", "nodata=null")';
+                // var surfaceImage = new WorldWind.SurfaceImage(new WorldWind.Sector(checkedFootPrintsArray[i].Minimum_latitude, checkedFootPrintsArray[i].Maximum_latitude, minlong, maxlong), WCPSLoadImage);
 
 
                 console.log("Load default image on footprint: " + coverageID);
